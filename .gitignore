@@ -114,3 +114,4 @@ logs/
 src/website/settings_dev.py
 src/website/settings_prd.py
 src/website/settings_testing.py
+requirements — kopia.txt
