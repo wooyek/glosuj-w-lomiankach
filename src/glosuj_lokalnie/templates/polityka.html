@@ -1,0 +1,12 @@
+{% extends "simple.html" %}
+{% block content %}
+    <h1>Polityka prywatności</h1>
+    <p>Nasz serwis nie przetwarza danych użytkowników poza procesem przygotowania formularza wniosku.</p>
+    <p>Dane osobowe użytkownikóe nie są wykorzystywane do innych celów jak tylko wygenerowanie formularza
+        <a href="{{ url_for("glosuj_lokalnie.Application:create") }}">wniosku o wpisanie do rejestru wyborców w Łomiankach</a>.</p>
+    <h2>Używamy ciasteczek</h2>
+    <p>Ciasteczka to małe pliki danych zapisywane na komputerach użytkowników. Wykorzystujemy ciasteczka to zapamiętania na
+        komputerze użytkownika danych potrzebnych do wygenerowania formularza.</p>
+    <p>Użytkownicy mogą zarządzać ciasteczkami w ustawieniach swojej przeglądarki</p>
+
+{% endblock %}

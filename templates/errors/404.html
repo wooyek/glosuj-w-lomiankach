@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}{% trans %}Page not found{% endtrans %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template e404">
+                <h1>{% trans %}Przepraszamy, nie znamy takiego adresu{% endtrans %}</h1>
+                <p>HTTP 404 Not Found</p>
+                <div class="error-details">
+                    <p>{% trans %}Sorry, an error has occured, Requested page not found!{% endtrans %}</p>
+                    <span class="url">{{ request.url }}</span>
+                    <p>Jeśli powyższy adres został wygenerowany automatycznie to prosimy o zgłoszenie błędu:
+                    <p>Jeśli adres został podany ręcznie, proszę sprawdzić czy został poprawnie wpisany.</p>
+                </div>
+                <div class="error-actions">
+                    <a href="/" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span> {% trans %}Take Me Home{% endtrans %} </a>
+                    <a href="mailto:pomoc+404@bravelabs.pl?subject=Błędny adres&body={{request.url}}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> {% trans %}Contact Support{% endtrans %} </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

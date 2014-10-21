@@ -1,0 +1,61 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    {% assets "css" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bitter&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <link rel="home" href="/"/>
+
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8"/>
+    <meta name="description" content="Możesz zagłosować w Łomiankach bez meldunku. Wypełnij nasz formularz i dopisz się do rejestru wyborców."/>
+    <meta name="keywords" content="wybory 2014, łomianki, dialog łomianki, witold gawda"/>
+    <meta name="robots" content="index, follow, noarchive"/>
+    <meta name="googlebot" content="noarchive"/>
+    <meta name="google-site-verification" content="3fhnNV9w5kMWBAcEUf3o_UTDmExr-47HdkFyjKXdyQ4"/>
+
+    <link rel="home" href="http://glosuj-w-lomiankach.pl"/>
+    <link rel="canonical" href="http://glosuj-w-lomiankach.pl{{ request.path }}"/>
+    <link rel="author" href="http://www.DialogLomianki.pl"/>
+    <link rel="publisher" href="https://plus.google.com/106897195166601500987"/>
+
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Głosuj w Łomiankach"/>
+    <meta property="og:url" content="http://glosuj-w-lomiankach.pl{{ request.path }}"/>
+    <meta property="og:image" content="http://glosuj-w-lomiankach.pl/assets/images/cover.png"/>
+
+    <meta property="og:description" content="Możesz zagłosować w Łomiankach bez meldunku. Wypełnij nasz formularz i dopisz się do rejestru wyborców."/>
+
+    <meta property="og:site_name" content="Głosuj w Łomiankach"/>
+    <meta property="fb:admins" content="259770074216711"/>
+
+
+</head>
+<body class="{% block body_class %}{% endblock %}">
+{#<script>urls = new bravelabs.limestone.Urls();</script>#}
+
+{% block body %} {% endblock %}
+
+{% assets "js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+
+{% block bottom %}{% endblock %}
+
+</body>
+</html>

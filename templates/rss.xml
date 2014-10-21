@@ -1,0 +1,48 @@
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
+    <channel>
+        <title>{{ site.name }}</title>
+        <atom:link href="http://skonieczny.pl/feed/" rel="self" type="application/rss+xml"/>
+        <link>http://{{ site.host[0] }}</link>
+        <lastBuildDate>{{ now|datetimeformat }}</lastBuildDate>
+        <language>pl-PL</language>
+        <sy:updatePeriod>daily</sy:updatePeriod>
+        <sy:updateFrequency>1</sy:updateFrequency>
+        <generator>{{ site.host[0] }}</generator>
+        {% for post in posts %}
+            <item>
+                <title>{{ post.title }}</title>
+                <link>http://{{ site.host[0] }}{{ post.url }}</link>
+                <pubDate>{{ post.published|datetimeformat }}</pubDate>
+                <dc:creator>{{ post.author }}</dc:creator>
+                <category><![CDATA[ {{ post.labels|join(", ") }} ]]></category>
+                <guid isPermaLink="false">{{ post.key.urlsafe() }}</guid>
+                <description>
+                    <![CDATA[
+                        {% if "galeria" in  post.labels %}
+                            {{ post.teaser.html(30)|safe }}
+                            <p><a class="read-more" href="http://{{ site.host[0] }}{{ post.url }}">Czytaj dalej i zobacz cały album &raquo;</a><br/></p>
+                            {% with box=post.get_box("PicasaGalleryBox") %}
+                                {% if box %}
+                                    <div style="width: 540px; overflow:hidden;">
+                                    {% for img, thumb in box.thumbs(130, 4) %}
+                                        <a class="image" style="margin: 0 5px 5px 0;display: block;float: left;" href="http://{{ site.host[0] }}{{ post.url }}">
+                                            <img width="130" height="130" src="{{ thumb }}">
+                                        </a>
+                                    {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endwith %}
+                        {% else %}
+                            {% if post.cover %}
+                                <a class="news-picture" style="margin: 0 10px 10px 0;display: block; float: left;" href="http://{{ site.host[0] }}{{ post.url }}">{{ post.cover.html(130,crop=True)|safe }}</a>
+                            {% endif %}
+                            {{ post.teaser.html(30)|safe }}
+                            <a class="read-more" href="http://{{ site.host[0] }}{{ post.url }}">Więcej &raquo;</a>
+                        {% endif %}
+                    ]]>
+                </description>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>

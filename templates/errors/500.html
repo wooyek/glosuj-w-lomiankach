@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Błąd serwera</title>
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="/assets/css/screen.css"/>
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="/assets/css/screen.css"/>
+    <!--[if IE]>
+        <link rel="stylesheet" type="text/css" media="screen, projection" href="/assets/css/ie.css">
+      <![endif]-->
+</head>
+<body>
+<div id="root">
+    <section id="content">
+        <div class="container">
+            <section class="main">
+                <div class="main-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="error-template e500">
+                                <h1>Ups! Wystąpił błąd :(</h1>
+                                <p>HTTP 500 Internal Server Error</p>
+                                <div class='message'>{{ message }}</div>
+                                <p>Przepraszamy za utrudnienia. Nasza wina — coś nie działa tak jak powinno :(<br/>Do programistów został wysłany email w informacją o błędzie.</p>
+                                <p>Możesz ponownie spróbować za chwilę — być może przyczyna błędu ustąpi sama.<br/> Jeśli nie ustąpiła spróbuj za kilka godzin, może do tego czasu
+                                    przygotujemy poprawkę.</p>
+                                <p>Możesz przyśpieszyć naszą interwencję dzwoniąc do nas: 883 067 098, ewentualnie wyślij email <a
+                                        href="mailto:err@bravelabs.pl?subject=Błąd! Proszę o naprawę. {{ message }}&body={{ message }}%20{{ request.url }}">err@bravelabs.pl</a>.
+                                </p>
+                            <div class="error-actions">
+                                    <a href="/" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span> {% trans %}Take Me Home{% endtrans %} </a>
+                                    <a href="mailto:err@bravelabs.pl?subject=Błąd! Proszę o naprawę. {{ message }}&body={{ message }}%20{{ request.url }}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> {% trans %}Contact Support{% endtrans %} </a>
+
+                            </div>
+                                <p>Jeszcze raz przepraszamy za utrudnienia.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+</body>
+</html>

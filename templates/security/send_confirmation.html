@@ -1,0 +1,15 @@
+{% extends "security/base.html" %}
+{% from "bootstrap/forms/horizontal.html" import render_form %}
+
+{% block title %}{% trans %}Resend confirmation{% endtrans %}{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default" style="margin: 0 auto; max-width: 600px">
+        <div class="panel-heading">
+            <h1 class="panel-title">{% trans %}Resend confirmation instructions{% endtrans %}</h1>
+        </div>
+        <div class="panel-body">
+            {{ render_form(send_confirmation_form, submit_text=_("Reset password"), action=url_for_security('send_confirmation')) }}
+        </div>
+    </div>
+{% endblock %}

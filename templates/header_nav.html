@@ -1,0 +1,60 @@
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background: #fd8c00; color: #FFF">
+        <div class="container">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for("start") }}">Głosuj w Łomiankach</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for("glosuj_lokalnie.Application:create") }}">{% trans %}Wypełnij wniosek{% endtrans %}</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://www.DialogLomianki.pl/Witold-Gawda">{% trans %}Witold Gawda{% endtrans %}</a></li>
+                    <li><a href="http://www.DialogLomianki.pl">{% trans %}Dialog Łomianki{% endtrans %}</a></li>
+                    {% if security and current_user.is_staff %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans %}Admin{% endtrans %}<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url_for("auth.User:list") }}"><i class="glyphicon glyphicon-user"></i> {% trans %}Użytkownicy{% endtrans %}</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{{ url_for("routes") }}"><i class="glyphicon glyphicon-globe"></i> Lista URLi</a></li>
+                                <li><a href="{{ url_for("styles") }}"><i class="glyphicon glyphicon-font"></i> Przegląd styli</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{{ url_for("err") }}"><i class="glyphicon glyphicon-fire"></i> Testowy błąd</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                    {% if security and current_user.is_authenticated() %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle nav-avatar" data-toggle="dropdown">
+                                {{ current_user.cn }} <img src="{{ current_user.gravatar }}?s=36&d=retro"/>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url_for("security.logout") }}"><i class="glyphicon glyphicon-off"></i> {% trans %}Logout {% endtrans %}</a></li>
+                                <li class="divider"></li>
+                                <li><a href="http://gravatar.com"><i class="fa fa-user-md"></i> {% trans %}Change avatar{% endtrans %}</a></li>
+                                <li><a href="{{ url_for("auth.profile") }}"><i class="glyphicon glyphicon-user"></i> User account</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+{#
+                        <li class=""><a href="{{ url_for("security.login") }}">{% trans %}Log in{% endtrans %}</a></li>
+                        <li class=""><a href="{{ url_for("security.register") }}">{% trans %}Register{% endtrans %}</a></li>
+#}
+                    {% endif %}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+</header>

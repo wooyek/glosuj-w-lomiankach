@@ -1,0 +1,242 @@
+﻿{% extends "body.html" %}
+{% block title %}Zaloguj się do elektronicznego dziennika lekcyjnego{% endblock %}
+{% block body_class%}workflow-layout{% endblock %}
+{% block logo_url %}http://www.dziennik.edu.pl{% endblock %}
+{% block body %}
+
+    <noscript>
+        <p>Włącz obsługę JavaScript by móc korzystać z serwisu dziennika lekcyjnego.</p>
+    </noscript>
+
+    <script type="text/javascript">
+     $(function(){
+        var b={expires:365};
+        $("a.switch-login").click(function (d) {
+            d.preventDefault();
+            d = $(this).attr("href").slice(1);
+            $(".login-box, .registration-box").attr("data-method", d);
+            $.cookie("login-method", d, b)
+        });
+        $("#openid-form #providers a").click(function (e) {
+            var provider = $(this);
+            $("#openid-form #providers a").removeClass("selected");
+            provider.addClass("selected");
+            $("#openid-form .provider").removeClass("selected");
+            e.preventDefault();
+            if (provider.data("url").indexOf("{id}") === -1) {
+                $("#openid-form .buttons").removeClass("selected");
+                $("#openid-form").trigger("submit")
+            } else {
+                $.cookie("openid-provider", provider.attr("href"), b);
+                $("#openid-form .buttons").addClass("selected")
+            }
+            $(provider.attr("href")).addClass("selected").find("input").focus()
+        });
+        $("#openid-form").submit(function () {
+            var url = $("#openid-form #providers .selected").data("url");
+            var id = $("#openid-form .provider.selected input").val();
+            $("#openid_provider").val(url.replace("{id}", id));
+            $("#openid_username").val(id)
+        });
+    });
+    </script>
+
+    <div id="content">
+    <div id="login" class="login-box workflow-box small" data-method="standard">
+        <header>
+          <h1>Log in</h1>
+          <span class="secondary-link standard">
+
+              Switch to <a class="switch-login" href="#openid">OpenID log in</a>
+
+          </span>
+          <span class="secondary-link openid">
+
+              Switch to <a class="switch-login" href="#standard">standard log in</a>
+
+          </span>
+        </header>
+        <section class="clearfix" id="log-in-container">
+
+
+
+{#
+
+    <div>
+      <form class="login-form form-horizontal" action="/account/signin/" method="post" id="login-form">
+
+
+        <input type="hidden" name="next" value="{{next_url}}">
+          <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="dc847eae3d2fc58422c4c3870dcf3a53"></div>
+
+
+            <div class="control-group username">
+              <label class="control-label" for="id_username">Username or email</label>
+              <div class="controls"><input type="text" class="text" id="id_username" name="username" autofocus="autofocus"></div>
+            </div>
+
+
+
+          <div class="control-group">
+            <label class="control-label" for="id_password">Password</label>
+              <div class="controls"><input type="password" id="id_password" class="password" name="password"></div>
+          </div>
+
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" name="submit" class="btn btn-primary">
+
+                Log in
+
+            </button>
+
+
+            <a href="/account/password/reset/" class="forgot-password">Forgot your password?</a>
+
+          </div>
+          </div>
+
+            <div class="control-group">
+            <div class="controls">
+
+              <a href="/account/signup/" class="">Need an account? Sign up free.</a>
+            </div>
+
+        </div>
+      </form>
+    </div>
+
+
+#}
+
+
+    <ul id="social-login-forms">
+
+      <li>
+
+    <form class="connect-button" name="login" method="POST" action="{{ url_for(".OpenId:login") }}">
+      <div style="display:none">{{ openid_form.csrf_token }}</div>
+      <input type="hidden" name="next" value="{{ next_url }}">
+      <input type="hidden" name="openid_identifier" value="https://www.google.com/accounts/o8/id">
+      <button type="submit" class="aui-button aui-style google-button">
+        Google
+      </button>
+    </form>
+    </li>
+{#
+      <li>
+
+    <form class="connect-button" name="login" method="POST" action="/social/facebook/redirect/">
+      <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="dc847eae3d2fc58422c4c3870dcf3a53"></div>
+      <input type="hidden" name="next" value="{{ next_url }}">
+      <button type="submit" class="aui-button aui-style facebook-button">
+        Facebook
+      </button>
+    </form>
+    </li>
+      <li>
+
+    <form class="connect-button" name="login" method="POST" action="/social/twitter/redirect/">
+      <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="dc847eae3d2fc58422c4c3870dcf3a53"></div>
+      <input type="hidden" name="next" value="{{ next_url }}">
+      <button type="submit" class="aui-button aui-style twitter-button">
+        Twitter
+      </button>
+    </form>
+    </li>
+      <li>
+
+    <form class="connect-button" name="login" method="POST" action="/social/github/redirect/">
+      <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="dc847eae3d2fc58422c4c3870dcf3a53"></div>
+      <input type="hidden" name="next" value="{{ next_url }}">
+      <button type="submit" class="aui-button aui-style github-button">
+        GitHub
+      </button>
+    </form>
+    </li>
+    </ul>
+#}
+
+
+
+        </section>
+{#
+        <section id="openid-container">
+          <form id="openid-form" action="/social/openid/redirect/" method="POST" class="form-horizontal login-form">
+            <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="dc847eae3d2fc58422c4c3870dcf3a53"></div>
+
+              <input name="next" type="hidden" value="/">
+
+
+            <div class="control-group">
+              <label class="control-label">OpenID provider</label>
+                <div class="controls cf">
+              <ul id="providers">
+                <li><a href="#google" data-url="https://www.google.com/accounts/o8/id" title="Google">Google</a></li>
+                <li><a href="#yahoo" data-url="http://yahoo.com/" title="Yahoo!">Yahoo!</a></li>
+                <li><a href="#aol" title="AOL" data-url="http://openid.aol.com/{id}">AOL</a></li>
+                <li><a href="#openid" title="OpenID" data-url="{id}">OpenID</a></li>
+                <li><a href="#myopenid" title="MyOpenID" data-url="http://{id}.myopenid.com/">MyOpenID</a></li>
+                <li><a href="#livejournal" title="LiveJournal" data-url="http://{id}.livejournal.com/">LiveJournal</a></li>
+                <li><a href="#flickr" title="Flickr" data-url="http://flickr.com/{id}/">Flickr</a></li>
+                <li><a href="#wordpress" title="WordPress" data-url="http://{id}.wordpress.com/">WordPress</a></li>
+                <li><a href="#verisign" title="VeriSign" data-url="http://{id}.pip.verisignlabs.com/">VeriSign</a></li>
+                <li><a href="#claimid" title="ClaimID" data-url="http://claimid.com/{id}">ClaimID</a></li>
+              </ul>
+            </div>
+            </div>
+            <div class="control-group provider" id="aol">
+              <label  class="control-label" for="aol-username">Username</label>
+              <div class="controls"><input type="text" class="text" id="aol-username" name="aol-username"></div>
+            </div>
+            <div class="control-group provider" id="openid">
+              <label  class="control-label" for="openid-url">OpenID URL</label>
+                <div class="controls"><input type="url" class="text" id="openid-url" name="openid-url"></div>
+            </div>
+            <div class="control-group provider" id="myopenid">
+              <label  class="control-label" for="myopenid-username">Username</label>
+                <div class="controls"><input type="text" class="text" id="myopenid-username" name="myopenid-username"></div>
+            </div>
+            <div class="control-group provider" id="livejournal">
+              <label  class="control-label" for="livejournal-username">Username</label>
+                <div class="controls"><input type="text" class="text" id="livejournal-username" name="livejournal-username"></div>
+            </div>
+            <div class="control-group provider" id="flickr">
+              <label  class="control-label" for="flickr-username">Username</label>
+                <div class="controls"><input type="text" class="text" id="flickr-username" name="flickr-username"></div>
+            </div>
+            <div class="control-group provider" id="wordpress">
+              <label  class="control-label" for="wordpress-username">Username</label>
+                <div class="controls"><input type="text" class="text" id="wordpress-username" name="wordpress-username"></div>
+            </div>
+            <div class="control-group provider" id="verisign">
+              <label  class="control-label" for="verisign-username">Username</label>
+                <div class="controls"><input type="text" class="text" id="verisign-username" name="verisign-username"></div>
+            </div>
+            <div class="control-group provider" id="claimid">
+              <label  class="control-label" for="claimid-username">Username</label>
+                <div class="controls"><input type="text" class="text" id="claimid-username" name="claimid-username"></div>
+            </div>
+            <div class="control-group">
+              <div class="controls buttons">
+                <input type="hidden" id="openid_provider" name="openid_provider">
+                <input type="hidden" id="openid_username" name="openid_username">
+                <button type="submit" class="btn btn-primary">
+                  Log in
+                </button>
+              </div>
+                <div class="control-group">
+                   <div class="controls">
+
+                <p class="signup-copy" style="margin-top: 1em">
+                  <a class="" href="/account/signup/">Need an account? Sign up free.</a>
+                </p>
+                       </div></div>
+
+            </div>
+          </form>
+        </section>
+#}
+      </div>
+    </div>
+{% endblock %}

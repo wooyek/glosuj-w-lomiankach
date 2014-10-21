@@ -1,0 +1,24 @@
+{% extends "sidebarred.html" %}
+{% block title %}{{ object.title }}{% endblock %}
+{% block main %}
+
+    <div class="page-header">
+        <p class="lead">{% trans %}Konsultacja{% endtrans %}</p>
+
+        <div class="pull-right">
+            <a class="btn btn-default" href="{{ url_for('.Article:update', id=object.id) }}">
+                <i class="glyphicon glyphicon-edit"></i> {% trans %}Aktualizuj konsultację{% endtrans %}
+            </a>
+        </div>
+    </div>
+
+<table class="table table-striped">
+  <tr><th>{% trans %}Tytuł{% endtrans %}</th><td>{{ object.title }}</td></tr>
+</table>
+
+<div>
+{{ object.content }}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}HTTP 400 Bad Request: {{ message }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template e400">
+                <h1>{% trans %}Uszkodzony adres URL{% endtrans %}</h1>
+                <p>HTTP 400 Bad Request</p>
+                <div class="error-details">
+                    <p>Przepraszamy za utrudnienia. Adres strony WWW który został użyty, jest błędnie błędny. Został uszkodzony lub błędnie zestawiony.</p>
+                    <div class="message"><p><pre>{{ message }}</pre></p></div>
+                    <p>Do programistów został wysłany email w informacją o tym błędzie, spróbujemy go usunąć.</p>
+                    <p>Możesz ponownie spróbować za chwilę — być może przyczyna błedu ustąpi sama.<br/> Jeśli nie ustąpiła spróbuj za kilka godzin, może do tego czasu przygotujemy poprawkę.</p>
+                    <p>Możesz przyśpieszyć naszą interwencję dzwoniąc do nas: 883 067 098, ewentualnie wyślij email <a href="mailto:err+e400@bravelabs.pl?subject=HTTP 400 {{request.url}}&body={{ message }}%20{{request.url}}">err@bravelabs.pl</a>.</p>
+                </div>
+                <div class="error-actions">
+                    <a href="/" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span> {% trans %}Take Me Home{% endtrans %} </a>
+                    <a href="mailto:err+e400@bravelabs.pl?subject=HTTP 400 {{request.url}}&body={{ message }}%20{{request.url}}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> {% trans %}Contact Support{% endtrans %} </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

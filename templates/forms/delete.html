@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Potwierdź usunięcie {{ object|dn }}{% endblock %}
+{% block content %}
+<h2 class="">Potwierdź usunięcie</h2>
+<form class="form-horizontal" method="post">
+  <p>Czy na pewno chcesz usunąć {{ object|info }}?</p>
+  {% csrf_token %}
+  <div class="form-actions">
+    <button class="btn btn-danger" type="submit">Tak, usuń</button>
+    <a accesskey="a" class="btn" href="{{ next }}">Anuluj</a>
+  </div>
+{% endblock %}

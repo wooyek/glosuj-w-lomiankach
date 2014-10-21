@@ -1,0 +1,25 @@
+{% extends "basic.html" %}
+{% block title %}Aktualizacja kampanii{% endblock %}
+{% block content %}
+
+    <div class="page-header">
+        <p class="lead">Rejestracja użytkownika</p>
+    </div>
+<form method="post" class="form-horizontal">
+    {% if form.errors %}
+        <ul class="errors">
+            {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                {% for error in field_errors %}
+                    <li>{{ form[field_name].label.text }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}    {% for field in form %}
+        {% include "forms/horizontal/field.html" %}
+    {% endfor %}
+    <div class="form-actions">
+        <button class="btn btn-primary" type="submit">Zarejestruj</button>
+        <a class="cancel btn" href="{{ next }}">Anuluj</a>
+    </div>
+</form>
+{% endblock %}

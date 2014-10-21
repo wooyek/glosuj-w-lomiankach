@@ -1,0 +1,58 @@
+{% from "bootstrap/forms/horizontal.html" import form_field_auto, form_errors %}
+<div class="row">
+    <div class="col-lg-8 col-md-offset-2">
+        <div class="page-header">
+            <p class="lead">
+                Wniosek o wpisanie do rejestru wyborców
+            </p>
+        </div>
+        <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div>
+                Twoje dane nie zostaną przez nas zapisane, użyjemy ich wyłącznie do wygenerowania dokumentu wniosku.
+            </div>
+        </div>
+        <form class="form-horizontal" method="post" role="form">
+            {{ form_errors(form) }}
+                    {% for field in form if field.name not in form.existing and field.name not in form.reg %}
+                        {{ form_field_auto(field) }}
+                    {% endfor %}
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Adres zameldowania</div>
+                <div class="panel-body">
+                    {% for field in form if field.name in form.existing %}
+                        {{ form_field_auto(field) }}
+                    {% endfor %}
+                </div>
+            </div>            <div class="panel panel-default">
+                <div class="panel-heading">Adres zamieszkania w Łomiankach</div>
+                <div class="panel-body">
+                    {% for field in form if field.name in form.reg %}
+                        {{ form_field_auto(field) }}
+                    {% endfor %}
+                </div>
+            </div>
+
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div>
+                Wydrukuj wygenerowany wniosek, załącz kopię dowodu osobistego i
+                złóż wzniosek osobiście w urzędzie miejskim w Łomiankach
+                (ul. <a target="_blank" href="https://www.google.pl/maps/place/Urz%C4%85d+Miasta+i+Gminy/@52.34057,20.886563,17z/data=!3m1!4b1!4m2!3m1!1s0x471eb637daa30009:0xc9b61c18e638f3f5">Warszawska 115</a>, okienko nr 6).
+            </div>
+        </div>
+
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                    <button type="submit" class="btn btn-primary">Wygeneruj wniosek</button>
+{#
+                    <a class="btn btn-link" href="{{ next_url }}">{% trans %}Cancel{% endtrans %}</a>
+#}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

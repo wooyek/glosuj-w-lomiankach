@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <p>&nbsp;</p>
+
+                    <h1>Oddaj głos w Łomiankach</h1>
+
+                    <p>&nbsp;</p>
+
+                    <p>Mieszkasz w Łomiankach, ale nie jesteś tu zameldowany? Chcesz współdecydować o przyszłości swojego miasta? </p>
+
+                    <p>Zarejestruj się w rejestrze wyborców i 16 listopada zagłosuj w wyborach samorządowych w miejscu zamieszkania.</p>
+
+                    <p>&nbsp;</p>
+
+                    <p><a class="btn btn-primary btn-lg" href="{{ url_for("glosuj_lokalnie.Application:create") }}">Wypełnij formularz</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 feature">
+
+                <div class="row">
+                    <div class="col-md-3 col-xs-2 text-center dialog-icon">
+                        <i class="fa fa-check-square  fa-5x hidden-xs hidden-sm"></i>
+                        <i class="fa fa-check-square  fa-3x visible-xs"></i>
+                        <i class="fa fa-check-square  fa-4x visible-sm"></i>
+                    </div>
+                    <div class="col-md-9 col-xs-10">
+                        <h1><a href="{{ url_for("glosuj_lokalnie.Application:create") }}">Bez meldunku</a></h1>
+
+                        <p>Nie musisz mieć meldunku w Łomiankach, by tutaj głosować w wyborach. Wystarczy złożenie wniosku o wpisanie do rejestru wyborców</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 feature">
+                <div class="row">
+                    <div class="col-md-3 col-xs-2 text-center dialog-icon">
+                        <i class="fa fa-tasks   fa-5x hidden-xs hidden-sm"></i>
+                        <i class="fa fa-tasks   fa-3x visible-xs"></i>
+                        <i class="fa fa-tasks   fa-4x visible-sm"></i>
+                    </div>
+                    <div class="col-md-9 col-xs-10">
+                        <h1><a href="{{ url_for("glosuj_lokalnie.Application:create") }}">Wypełnij formularz</a></h1>
+
+                        <p>Przygotowaliśmy dla Ciebie generator formularza, wydrukuj go i złóż osobiście w urzędzie miejskim w Łomiankach</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 feature">
+                <div class="row">
+                    <div class="col-md-3 col-xs-2 text-center dialog-icon">
+                        <i class="fa fa-thumbs-up fa-5x hidden-xs hidden-sm"></i>
+                        <i class="fa fa-thumbs-up fa-3x visible-xs"></i>
+                        <i class="fa fa-thumbs-up fa-4x visible-sm"></i>
+                    </div>
+                    <div class="col-md-9 col-xs-10">
+                        <h1><a href="{{ url_for("glosuj_lokalnie.Application:create") }}">Decyduj</a></h1>
+
+                        <p>Oddając głos w miejscu zamieszkania, nawet bez meldunku masz wpływ na przyszłość swojej miejscowości.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix visible-lg-block"></div>
+        </div>
+    </div>
+{% endblock %}
+RADA JEST ORGANEM

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Do zobaczenia{% endblock %}
+{% block body_class %}centered sitelogo nomenu text{% endblock %}
+
+{% block content %}
+    <div class="group">
+    <h1 class="" >Dziękujemy i do zobaczenia!</h1>
+    <p>Jeśli korzystasz z publicznego komputera i zalogowałeś się przy pomocy konta OpenID z innego serwisu, pamiętaj by z niego także <strong>się wylogować</strong> i zamknąć przegladarkę.</p>
+    <p class="buttons">
+        {% if openid_logout %}
+        <a title="Ta operacja może Ciebie wylogować np. z konta poczty elektronicznej, jeśli korzystasz z niego przez przeglądarkę." class="button red" href="{{ openid_logout }}">Wyloguj się z konta {% if openid_provider %}w serwisie {{ openid_provider }}{% endif %} </a>
+        {% endif %}
+        <a class="btn btn-primary" href="{{ url_for(".Login:login") }}">Zaloguj się ponownie</a>
+    </p>
+    </div>
+
+{% endblock %}
+

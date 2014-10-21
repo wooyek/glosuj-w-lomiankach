@@ -1,0 +1,54 @@
+{% load staticfiles compress cms_tags sekizai_tags menu_tags %}
+{% block page_title %}{% page_attribute page_title %}{% endblock %}
+
+{% block head %}
+    <title>{% block page_title %}{% page_attribute page_title %}{% endblock %}</title>
+    <meta name="description" content="{% page_attribute meta_description %}">
+    <meta name="keywords" content="{% page_attribute meta_keywords %}"/>
+    <meta name="viewport" content="width=device-width">
+
+    {% if LANGUAGE_CODE == 'pl' %}
+        <link rel="alternate" hreflang="en" href="{% page_language_url "en" %}"/>
+    {% else %}
+        <link rel="alternate" hreflang="pl" href="{% page_language_url "pl" %}"/>
+    {% endif %}
+
+    {% block css %}{% endblock %}{% block js %}{% endblock %}{% render_block "css" %}
+
+    {% with base_url="http://budzet.lomianki.org" %}
+
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
+        <link rel="home" href="{{ base_url }}"/>
+        {% if request.current_page %}
+            <link rel="canonical" href="{{ base_url }}{% page_url request.current_page %}"/>
+        {% endif %}
+        <link rel="author" href="/static/humans.txt"/>
+        <link rel="publisher" href="https://plus.google.com/+JanuszSkonieczny/"/>
+
+        <meta name="geo.placename" content="Łomianki, Mazowieckie, Polska"/>
+        <meta name="geo.position" content="52.331622,20.893501"/>
+        <meta name="geo.region" content="Warszawa"/>
+        <meta name="ICBM" content="52.334849, 20.887077"/>
+        <meta name="DC.title" content="{% page_attribute page_title %}">
+
+        <!-- TODO: poprawić FB -->
+        <meta name="og:street" content=""/>
+        <meta name="og:phone_number" content=""/>
+        <meta name="og:locality" content="Łomianki"/>
+        <meta name="og:region" content="MAZ"/>
+
+        <meta name="og:type" content="website"/>
+        {% if request.current_page %}
+            <meta name="og:url" content="{{ base_url }}{% page_url request.current_page %}"/>
+        {% endif %}
+        <meta name="og:image" content="{{ base_url }}{% static 'fb-logo.png' %}"/>
+        <meta name="og:site_name" content="Budżet Obywatelski Łomianek"/>
+        <meta name="fb:admins" content="185398204820326&"/>
+        <meta name="og:description" content="{% page_attribute meta_description %}"/>
+        <meta name="google-site-verification" content=""/>
+
+    {% endwith %}
+{% endblock %}
+{% block body %}
+    {% cms_toolbar %}
+{% endblock %}

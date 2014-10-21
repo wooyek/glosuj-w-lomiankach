@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Lista autorów{% endblock %}
+{% block content %}
+    <div class="page-header">
+        <h2>Użytkownicy</h2>
+        <div class="btn-group pull-right">
+            <a class="btn btn-default" href="{{ url_for('.User:create') }}"><i class="glyphicon glyphicon-plus"></i> Nowy używkownik</a>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr class="head">
+            <th class="lp">Lp</th>
+            <th>{% trans %}Imię{% endtrans %}</th>
+            <th>{% trans %}Nazwisko{% endtrans %}</th>
+            <th>{% trans %}Email{% endtrans %}</th>
+            <th>{% trans %}Utworzony{% endtrans %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% include2 "./rows.html" %}
+        {% if not list %}
+            <tr>
+                <td class="message" colspan='15'>
+                    <p>{% trans %}Brak autorów.{% endtrans %}</p>
+                </td>
+            </tr>
+        {% endif %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="15">{% include "paging/more.html" %}</th>
+        </tr>
+        </tfoot>
+    </table>
+{% endblock %}

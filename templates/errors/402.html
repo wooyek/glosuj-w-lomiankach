@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}HTTP 402 Forbidden: {{ message }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template e402">
+                <h1>{% trans %}Obszar niedostępny dla wybranej wersji abonamentu{% endtrans %}</h1>
+                <p>HTTP 402 Payment Required</p>
+                <div class="error-details">
+                    <p>{% trans %}Sorry, an error has occured, Requested page not found!{% endtrans %}</p>
+					    <div class="message"><p>{{ message|safe }}</p></div>
+    <p>Korzystasz z wersji abonamentu w któej wybrany obszar jest niedostępny.</p>
+    <p>Dlatego niektóre bardziej wymagające funkcje dziennika są dostępne tylko dla klientów korzystających z odpłatnej wersji dziennika.</p>
+    <p>Dołącz do naszych klientów, zapytaj nas o ofertę dla Twojej szkoły</p>
+                </div>
+                <div class="error-actions">
+                    <a href="/" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span> {% trans %}Take Me Home{% endtrans %} </a>
+                    <a href="mailto:pomoc+402@example.com?subject=Błędny adres&body={{request.url}}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> {% trans %}Contact Support{% endtrans %} </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

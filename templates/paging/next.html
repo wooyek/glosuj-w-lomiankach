@@ -1,0 +1,8 @@
+{% if paginator.more %}
+        {% if "?" in request.url %}
+            <a class="novisit" href="{{ request.url }}&cursor={{paginator.cursor}}&offset={{ paginator.offset }}">Więcej &raquo;</a><span class='hourglass' style='display:none'>&nbsp;</span>
+        {% else %}
+            <a class="novisit" href="{{ request.url }}?cursor={{paginator.cursor}}&offset={{ paginator.offset }}">Więcej &raquo;</a><span class='hourglass' style='display:none'>&nbsp;</span>
+        {% endif %}
+{% endif %}
+

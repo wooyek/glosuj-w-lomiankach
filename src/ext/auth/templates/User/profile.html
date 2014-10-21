@@ -1,0 +1,59 @@
+{% extends "security/base.html" %}
+
+{% block title %}{% trans %}User account{% endtrans %}{% endblock %}
+
+
+{% block content %}
+    <h1>{% trans %}User account{% endtrans %}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row mg-btm">
+                <div class="col-xs-5">
+                    <img src="{{ current_user.gravatar }}?s=180&d=retro" alt="" class="img-rounded img-responsive mg-btm">
+                </div>
+                <div class="col-xs-7">
+                    <p>{{ current_user.first_name }} {{ current_user.last_name }}</p>
+
+                    <p>{{ current_user.email }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{% trans %}Account security{% endtrans %}</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class=""><a href="{{ url_for('security.change_password') }}"><i class="fa fa-key fa-fw"></i> {% trans %}Change password{% endtrans %}</a></li>
+                        <li class=""><a href="{{ url_for('security.send_confirmation') }}"><i class="fa fa-envelope-o fa-fw"></i> {% trans %}Send confirmation{% endtrans %}</a></li>
+                        <li class=""><a href="{{ url_for('security.forgot_password') }}"><i class="fa fa-lightbulb-o fa-fw"></i> {% trans %}Forgot password{% endtrans %}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{% trans %}Setup social login{% endtrans %}</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        {% for provider in ['Google','Twitter','Facebook', 'Github'] %}
+                            <li class="">
+                                {% with conn = current_user.social_connection(provider) %}
+                                    {% if conn %}
+                                        <a class="" href="{{ conn.profile_url }}"><i class="glyphicon glyphicon-check"></i> {{ provider }}</a>
+                                    {% else %}
+                                        <a class="" href="{{ url_for('social.login', provider=provider) }}"><i class="glyphicon glyphicon-unchecked"></i> {{ provider }}</a>
+                                    {% endif %}
+                                {% endwith %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

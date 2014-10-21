@@ -1,0 +1,7 @@
+{% for object in list %}
+<tr class="{{ loop.cycle('', 'even') }}">
+    <td class="lp">{{ loop.index }}</td>
+    <td><a href="{{ url_for('.Case:detail', id=object.id) }}">{{ object.title }}</a></td>
+    <td><a href="{{ url_for('.Case:detail', id=object.id) }}">{{ object.published|datetimeformat }}</a></td>
+</tr>
+{% endfor %}

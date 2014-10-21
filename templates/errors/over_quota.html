@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" xml:lang="pl" lang="pl">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <title>Server przeciążony</title>
+<style type="text/css">
+html, body {
+    height: 100%;
+    width:100%;
+}
+
+.greenbtn {
+    height: 27px;
+    margin: 4px 2px 4px;
+    height: 17px !important;
+
+    background: #83c260; /* Old browsers */
+    background: -webkit-linear-gradient(#83c260, #71b44c 44%, #549d2c);
+    background: -moz-linear-gradient(top, #83c260 0%, #71b44c 44%, #549d2c 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #83c260), color-stop(44%, #71b44c), color-stop(100%, #549d2c)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #83c260 0%, #71b44c 44%, #549d2c 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #83c260 0%, #71b44c 44%, #549d2c 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, #83c260 0%, #71b44c 44%, #549d2c 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#83c260', endColorstr = '#549d2c', GradientType = 0); /* IE6-9 */
+    background: linear-gradient(top, #83c260 0%, #71b44c 44%, #549d2c 100%); /* W3C */
+
+    border: 1px solid #4c7336;
+    border-bottom: 1px solid #44692f;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 0 0 #a0d186, 0px 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 0 #a0d186, 0px 1px 2px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 4px 12px 4px;
+    text-align: center;
+    vertical-align: top;
+    text-shadow: 0 -1px 0 #4865e4;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    /*letter-spacing: 0.5px; */ /* Chrome will ignore values smaller that 1px */
+
+}
+
+.greenbtn:hover {
+    background: -webkit-linear-gradient(#8bc968, #7bbc57 44%, #4f9727);
+    border: 1px solid #456a2f;
+    border-bottom: 1px solid #456a2f;
+    -webkit-box-shadow: inset 0 1px 0 0 #a0d186, 0px 1px 2px rgba(0, 0, 0, 0.3);;
+    box-shadow: inset 0 1px 0 0 #a0d186, 0px 1px 2px rgba(0, 0, 0, 0.3);;
+
+    background: #8bc968; /* Old browsers */
+    background: -moz-linear-gradient(top, #8bc968 0%, #7bbc57 44%, #4f9727 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8bc968), color-stop(44%, #7bbc57), color-stop(100%, #4f9727)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #8bc968 0%, #7bbc57 44%, #4f9727 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #8bc968 0%, #7bbc57 44%, #4f9727 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, #8bc968 0%, #7bbc57 44%, #4f9727 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#8bc968', endColorstr = '#4f9727', GradientType = 0); /* IE6-9 */
+    background: linear-gradient(top, #8bc968 0%, #7bbc57 44%, #4f9727 100%); /* W3C */
+    color: #FFF;
+    text-decoration: none;
+}
+
+.greenbtn:active {
+    background: -webkit-linear-gradient(#83c260, #71b44c 44%, #549d2c);
+    border: 1px solid #3e612a;
+    border-top: 1px solid #4c7336;
+    border-bottom: 1px solid #547b3f;
+    -webkit-box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+
+    background: #83c260; /* Old browsers */
+    background: -moz-linear-gradient(top, #83c260 0%, #71b44c 44%, #549d2c 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #83c260), color-stop(44%, #71b44c), color-stop(100%, #549d2c)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #83c260 0%, #71b44c 44%, #549d2c 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #83c260 0%, #71b44c 44%, #549d2c 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, #83c260 0%, #71b44c 44%, #549d2c 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#83c260', endColorstr = '#549d2c', GradientType = 0); /* IE6-9 */
+    background: linear-gradient(top, #83c260 0%, #71b44c 44%, #549d2c 100%); /* W3C */
+    text-decoration: none;
+}
+.message {
+    margin: 1.8em 0;
+    font-size: 1.5em;
+    font-style: italic;
+    display: block;
+}
+
+</style>
+  </head>
+
+<body style="font: 14px Verdana, sans-serif; background: url('http://static.pspo.edu.pl/bg-content.png') no-repeat">
+
+
+<div style="width: 600px; margin: 30px auto;  #position: relative; overflow: hidden; background: url('http://static.pspo.edu.pl/emblem-over-quota.png') no-repeat left 30px; padding: 0 140px;">
+    <div style=" #position: absolute; #top: 20%; display: table-cell; vertical-align: middle;">
+      <div style=" #position: relative; #top: -50%; margin: 0 auto; width: 600px; ">
+          <div  style=''>
+    <h1>Serwer jest przeciążony.</h1>
+
+        <div class='message'>Niestety administrator nie został automatycznie powiadomiony o tym problemie.</div>
+
+    <p>Aplikacja jest przeciążona i przekracza limity dla ruchu sieciowego, a najgorsze jest to, że nie dowiemy się o tym automatycznie.</p>
+    <p>Prosimy wyślij nam wiadomość z informacją <a href="mailto:err@bravelabs.pl+over_quota?subject=Przekroczone limity obciążenia&body=">err@bravelabs.pl</a></p>
+              <p class="buttons"><a class="button default greenbtn" href="mailto:err+over_quota@bravelabs.pl?subject=Przekroczone limity obciążenia&body=">Wyślij email z prośbą interwencję</a></p>
+        <p>To jest jedynie statyczna strona wyświetlana przez serwer w przypadku, gdy serwer odmówi współpracy.</p>
+        <p>Możesz ponownie spróbować za chwilę — być może przyczyna błędu ustąpi sama, a jeśli nie ustąpi, spróbuj za kilka godzin, może do tego czasu przygotujemy poprawkę.</p>
+        <p>Jeszcze raz przepraszamy za utrudnienia.</p>
+          </div>
+      </div>
+    </div>
+</div>
+
+  </body>
+</html>

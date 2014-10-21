@@ -1,0 +1,22 @@
+{% extends "sidebarred.html" %}
+{% block title %}{{ object.title }}{% endblock %}
+{% block main %}
+
+    <div class="page-header">
+        <p class="lead">Użytkownik</p>
+
+        <div class="pull-right">
+            <a class="btn btn-default" href="{{ url_for('.User:update', id=object.id) }}">
+                <i class="glyphicon glyphicon-edit"></i> Aktualizuj użytkownika
+            </a>
+        </div>
+    </div>
+
+<table class="table table-striped">
+  <tr><th>{{ gettext("Imię") }}</th><td>{{ object.first_name }}</td></tr>
+  <tr><th>{{ gettext("Nazwisko") }}</th><td>{{ object.last_name }}</td></tr>
+  <tr><th>{{ gettext("Email") }}</th><td>{{ object.email }}</td></tr>
+</table>
+
+
+{% endblock %}

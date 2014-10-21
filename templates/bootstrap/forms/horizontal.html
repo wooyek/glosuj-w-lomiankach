@@ -1,0 +1,146 @@
+{% macro field_label(field) -%}
+    <label for="{{ field.field_id }}" class="col-sm-4 control-label">{{ field.label.text }}
+        {% if field.flags.required %}
+            <span title="{% trans %}This is required field{% endtrans %}" class="required">*</span>
+        {% endif %}
+    </label>
+{%- endmacro %}
+
+
+{% macro field_help(field) -%}
+    {% if field.help_text %}
+        <p class="help-block">{{ field.help_text|safe }}</p>
+    {% endif %}
+{%- endmacro %}
+
+
+{% macro field_errors(field) -%}
+    {% if field.errors %}
+        <ul class="help-block errors">{% for error in field.errors %}
+            <li>{{ error|e }}</li>{% endfor %}</ul>
+    {% endif %}
+{%- endmacro %}
+
+
+{% macro form_field(field, classes=None, hide_label=False) -%}
+    <div class="form-group{% if field.errors %} has-error{% endif -%}{%- if classes %} {{ classes }}{% endif %}">
+        {% if not hide_label %}{{ field_label(field) }}{% endif %}
+        <div class="col-sm-8">
+            {{ field(class="form-control")|safe }}
+            {{ field_help(field) }}
+            {{ field_errors(field) }}
+        </div>
+    </div>
+{%- endmacro %}
+
+
+{% macro form_datetime(field, classes=None, hide_label=False) -%}
+    <div class="form-group{% if field.errors %} has-error{% endif -%}{%- if classes %} {{ classes }}{% endif %} input-append">
+        {% if not hide_label %}{{ field_label(field) }}{% endif %}
+        <div class="col-sm-8">
+            <div class="input-group widget-datetime">
+                <span class="input-group-addon"><i data-time-icon="icon-time" data-date-icon="icon-calendar" class="glyphicon glyphicon-calendar"></i></span>
+                {{ field(class="form-control")|safe }}
+            </div>
+            {{ field_help(field) }}
+            {{ field_errors(field) }}
+        </div>
+    </div>
+{%- endmacro %}
+
+{% macro form_date(field, classes=None, hide_label=False) -%}
+    <div class="form-group{% if field.errors %} has-error{% endif -%}{%- if classes %} {{ classes }}{% endif %} input-append">
+        {% if not hide_label %}{{ field_label(field) }}{% endif %}
+        <div class="col-sm-8">
+            <div class="input-group widget-date">
+                <span class="input-group-addon"><i data-time-icon="icon-time" data-date-icon="icon-calendar" class="glyphicon glyphicon-calendar"></i></span>
+                {{ field(class="form-control")|safe }}
+            </div>
+            {{ field_help(field) }}
+            {{ field_errors(field) }}
+        </div>
+    </div>
+{%- endmacro %}
+
+
+{% macro form_checkbox(field, classes=None) -%}
+    <div class="form-group{% if field.errors %} error{% endif -%}{%- if classes %} {{ classes }}{% endif %}">
+        <div class="col-sm-5 col-sm-offset-4">
+            <div class="">
+                <label for="{{ field.field_id }}" class="checkbox">{{ field()|safe }} {{ _(field.label.text) }}</label>
+                {% if field.help_text %}
+                    <p class="help-block">{{ field.help_text|safe }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{%- endmacro %}
+
+
+{% macro select2(field, classes=None, hide_label=False) -%}
+    <div class="form-group{% if field.errors %} has-error{% endif -%}{%- if classes %} {{ classes }}{% endif %}">
+        {% if not hide_label %}{{ field_label(field) }}{% endif %}
+        <div class="col-sm-5">
+            {{ field(style="width:100%")|safe }}
+            {{ field_help(field) }}
+            {{ field_errors(field) }}
+        </div>
+    </div>
+{%- endmacro %}
+
+{% macro form_errors(form) -%}
+    {% if form.errors %}
+        <div class="alert alert-warning">
+            <h4 class="alert-heading">{% trans %}Please correct validation errors{% endtrans %}</h4>
+            {% for field, errors in form.errors.items() %}
+                <ul>
+                    <li>
+                        {{ form[field].label.text }}:
+                        {% if errors|length < 2 %}
+                            {{ errors[0] }}
+                        {% else %}
+                            <ul>{% for e in errors %}
+                                <li>{{ e }}</li>{% endfor %}</ul>
+                        {% endif %}
+                    </li>
+                </ul>
+            {% endfor %}
+        </div>
+    {% endif %}
+{%- endmacro %}
+
+{% macro form_field_auto(field) -%}
+    {% if field.widget.__class__.__name__ == "Select2Widget" %}
+        {{ select2(field) }}
+    {% elif field.widget.input_type == "hidden" %}
+        {{ field|safe }}
+    {% elif field.widget.input_type == "datetime" %}
+        {{ form_datetime(field) }}
+    {% elif field.widget.input_type == "date" %}
+        {{ form_date(field) }}
+    {% elif field.widget.input_type == "checkbox" %}
+        {{ form_checkbox(field) }}
+    {% elif field.widget.input_type == "submit" %}
+    {% else %}
+        {{ form_field(field) }}
+    {% endif %}
+{%- endmacro %}
+
+{% macro form_body(form, label_class="col-sm-2 control-label", widget_class="col-sm-10", no_label_offset="col-sm-offset-2") -%}
+    {{ form_errors(form) }}
+    {% for field in form %}
+        {{ form_field_auto(field) }}
+    {% endfor %}
+{%- endmacro %}
+
+{% macro render_form(form, class="form-horizontal", action=None, submit_text="Zapisz") -%}
+    <form class="{{ class }}" method="post" {% if action %}action="{{ action }}"{% endif %} role="form">
+        {{ form_body(form) }}
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8">
+                <button type="submit" class="btn btn-primary">{{ submit_text }}</button>
+                <a class="btn btn-link" href="{{ next_url }}">{% trans %}Cancel{% endtrans %}</a>
+            </div>
+        </div>
+    </form>
+{%- endmacro %}

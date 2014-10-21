@@ -1,0 +1,7 @@
+<p>{{ gettext('Welcome %(name)s,', name=user.first_name) }}</p>
+
+{% if security.confirmable %}
+<p>{% trans %}You can confirm your email through the link below:{% endtrans %}</p>
+
+<p><a href="{{ confirmation_link }}">{% trans %}Confirm my account{% endtrans %}</a></p>
+{% endif %}

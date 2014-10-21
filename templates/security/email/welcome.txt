@@ -1,0 +1,7 @@
+{{ gettext('Welcome %(name)s,', name=user.first_name) }}
+
+{% if security.confirmable %}
+{% trans %}You can confirm your email through the link below:{% endtrans %}
+
+{{ confirmation_link }}
+{% endif %}

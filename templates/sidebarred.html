@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block body_class %}sidebar{% endblock %}
+{% block body %}
+<div id="root">
+    {% include "header_nav.html" %}
+    <div id="alerts-wrap">
+        <section id="alerts"></section>
+    </div>
+    <section id="content">
+            <div class="aside-wrap">
+                <div class="container">
+                <section class="main">
+                    <div class="main-inner">
+                    {% block main %}{% endblock %}
+                    </div>
+                </section>
+                <aside>
+                    {% block sidebar %}{% endblock %}
+                </aside>
+            </div>
+        </div>
+    </section>
+    <div id="footer-shim"></div>
+</div>
+{% include "footer.html" %}
+{% endblock %}
+
+

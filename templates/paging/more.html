@@ -1,0 +1,7 @@
+{% if paginator.more %}
+        {% if "?" in request.url %}
+            <a class="more novisit" href="{{ request.base_url }}?cursor={{paginator.cursor}}&order={{ paginator.order }}&offset={{ paginator.offset }}">Więcej &raquo;</a><span class='hourglass' style='display:none'>&nbsp;</span>
+        {% else %}
+            <a class="more novisit" href="{{ request.base_url }}?cursor={{paginator.cursor}}&order={{ paginator.order }}&offset={{ paginator.offset }}">Więcej &raquo;</a><span class='hourglass' style='display:none'>&nbsp;</span>
+        {% endif %}
+{% endif %}

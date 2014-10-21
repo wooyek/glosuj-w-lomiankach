@@ -1,0 +1,10 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for post in posts %}
+        <url>
+            <loc>http://{{ site.host[0] }}{{post.url}}</loc>
+            <lastmod>{{ post.updated|datetimeformat }}</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.5</priority>
+        </url>
+    {% endfor %}
+</urlset>

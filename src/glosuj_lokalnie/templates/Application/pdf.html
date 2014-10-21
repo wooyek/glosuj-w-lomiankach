@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<ul>
+    <li>W związku z art. 18 § 9/art. 19* ustawy z dnia 5 stycznia 2011 r. – Kodeks wyborczy (Dz. U. Nr 21, poz. 112,
+        z późn. zm.) wnoszę o wpisanie mnie do rejestru wyborców.
+    </li>
+    <li>Nazwisko {{ object.last_name }}</li>
+    <li>Imię (imiona) {{ object.first_names }}</li>
+    <li>Imię ojca {{ object.last_name }}</li>
+    <li>Data urodzenia {{ object.birth_date }}</li>
+    <li>Nr ewidencyjny PESEL {{ object.last_name }}</li>
+    <li>Adres zameldowania na pobyd stały lub adres ostatniego zameldowania na pobyt stały:
+        <ul>
+            <li>Nazwa gminy (miasta, dzielnicy) {{ object.last_name }}</li>
+            <li>Miejscowość {{ object.last_name }}</li>
+            <li>Ulica {{ object.last_name }}</li>
+            <li>Numer domu {{ object.last_name }}</li>
+            <li>Numer mieszkania {{ object.last_name }}</li>
+        </ul>
+    </li>
+</ul>
+<p>Do wniosku załączam:</p>
+<ul>
+    <li>
+        kserokopię ważnego dokumentu potwierdzającego tożsamość:<br/>
+        {{ object.id_card_no }}
+    </li>
+</ul>
+<li>Numer dokumentu tożsamości</li>
+
+
+</body>
+</html>

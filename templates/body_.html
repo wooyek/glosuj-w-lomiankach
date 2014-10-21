@@ -1,0 +1,57 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  {% load compress %}
+
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+{% compress css %}
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}smoothness/jquery-ui-1.8.17.custom.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/cleanup.css">
+{% endcompress %}
+
+  <link rel="home" href="/" />
+
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8"/>
+    <meta name="author" content="Brave Labs sp. z o.o. - http://www.bravelabs.pl"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="index, follow, noarchive"/>
+    <meta name="googlebot" content="noarchive"/>
+    <meta name="google-site-verification" content=""/>
+
+  <!-- TODO: Create your own custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="{{ STATIC_URL }}js/modernizr-2.5.2.min.js"></script>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+{% compress js %}
+<script type="text/javascript" src="{{ STATIC_URL }}jquery/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}jquery/jquery-ui-1.8.17.custom.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}jquery/jquery-ui-i18n.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}jquery/setup.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}jquery/jquery.appear-1.1.1.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/html5boilerplate-logging.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/django-csrf.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/limestone/limestone-more.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/limestone/limestone-bgFade.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/limestone/limestone-editable.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/limestone/limestone-urls.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/crmik/SalesCall.js"></script>
+<script>
+urls = new bravelabs.limestone.Urls({% urlpatterns %});
+</script>
+{% endcompress %}
+{% block body %} {% endblock %}
+</body>
+</html>

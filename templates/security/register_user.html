@@ -1,0 +1,27 @@
+{% extends "security/base.html" %}
+{% from "bootstrap/forms/horizontal.html" import render_form %}
+
+{% block title %}{% trans %}Register{% endtrans %}{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default center-block" style="max-width: 600px">
+        <div class="panel-heading">
+            <h1 class="panel-title">{% trans %}Registration{% endtrans %}</h1>
+        </div>
+        <div class="panel-body">
+            {{ render_form(register_user_form, submit_text=_("Register"), action=url_for_security('register')) }}
+        </div>
+    </div>
+
+    <div class="panel panel-default center-block" style="max-width: 600px">
+        <div class="panel-heading">
+            <h1 class="panel-title">{% trans %}Registration with external account{% endtrans %}</h1>
+        </div>
+            <div class="social-box">
+                    <a class="btn btn-primary social-login-btn social-facebook" href="{{ url_for('social.login', provider='Facebook') }}"><i class="fa fa-fw fa-facebook fa-"></i></a>
+                    <a class="btn btn-primary social-login-btn social-google" href="{{ url_for('social.login', provider='Google') }}"><i class="fa fa-fw fa-google-plus"></i></a>
+                    <a class="btn btn-primary social-login-btn social-github" href="{{ url_for('social.login', provider='Github') }}"><i class="fa fa-fw fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
