@@ -1,0 +1,208 @@
+/*
+  In this file you should write your main styles. (or centralize your imports)
+*/
+/* line 4, ../../styles/sass/_dialog.scss */
+.navbar {
+  background: #f07c00;
+}
+
+/* line 8, ../../styles/sass/_dialog.scss */
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-brand {
+  color: #FFF;
+}
+
+/* line 22, ../../styles/sass/_dialog.scss */
+.feature .fa {
+  color: #f07c00;
+}
+
+/* line 26, ../../styles/sass/_dialog.scss */
+.feature h1 {
+  color: #f07c00;
+  margin-top: 0;
+}
+
+/* line 31, ../../styles/sass/_dialog.scss */
+.jumbotron, h1, h2 {
+  font-family: Oswald, sans-serif;
+}
+
+/* line 35, ../../styles/sass/_dialog.scss */
+section#content {
+  background-color: #fff;
+  padding-bottom: 60px;
+}
+
+/* line 40, ../../styles/sass/_dialog.scss */
+footer, body {
+  background-color: #f07c00;
+}
+
+/* line 44, ../../styles/sass/_dialog.scss */
+footer {
+  padding: 30px 0 0;
+}
+
+/* line 48, ../../styles/sass/_dialog.scss */
+.feature a {
+  color: #f07c00;
+}
+
+/* line 52, ../../styles/sass/_dialog.scss */
+footer .gawda {
+  margin-top: -90px;
+  margin-bottom: -60px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* line 59, ../../styles/sass/_dialog.scss */
+  footer .plakat {
+    width: 310px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 66, ../../styles/sass/_dialog.scss */
+  footer .gawda {
+    margin-bottom: 0;
+  }
+}
+/* line 3, ../../styles/sass/_alerts.scss */
+.alert-debug {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}
+/* line 8, ../../vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_alerts.scss */
+.alert-debug hr {
+  border-top-color: #a6e1ec;
+}
+/* line 11, ../../vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_alerts.scss */
+.alert-debug .alert-link {
+  color: #245269;
+}
+
+/* line 6, ../../styles/sass/_alerts.scss */
+.alert-error {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b;
+}
+/* line 8, ../../vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_alerts.scss */
+.alert-error hr {
+  border-top-color: #f7e1b5;
+}
+/* line 11, ../../vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_alerts.scss */
+.alert-error .alert-link {
+  color: #66512c;
+}
+
+/* line 9, ../../styles/sass/_alerts.scss */
+.alert-message {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}
+/* line 8, ../../vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_alerts.scss */
+.alert-message hr {
+  border-top-color: #a6e1ec;
+}
+/* line 11, ../../vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_alerts.scss */
+.alert-message .alert-link {
+  color: #245269;
+}
+
+/* line 6, ../../styles/sass/_errors.scss */
+div.error-template .message, div.error-template .url {
+  margin: 1.8em 0;
+  font-size: 1.5em;
+  font-style: italic;
+  display: block;
+}
+
+/* line 13, ../../styles/sass/_errors.scss */
+div.e400, div.e402, div.e403, div.e404, div.e500, div.no_demo {
+  margin-top: 40px;
+  padding-left: 140px;
+  min-height: 200px;
+}
+
+/* line 19, ../../styles/sass/_errors.scss */
+div.e400 {
+  background: url('../../styles/images/errors/400.png') no-repeat left top;
+}
+
+/* line 23, ../../styles/sass/_errors.scss */
+div.e402, div.no_demo {
+  background: url('../../styles/images/errors/402.png?1405540783') no-repeat left top;
+}
+
+/* line 27, ../../styles/sass/_errors.scss */
+div.e403 {
+  background: url('../../styles/images/errors/403.png?1405540783') no-repeat left top;
+}
+
+/* line 31, ../../styles/sass/_errors.scss */
+div.e404 {
+  background: url('../../styles/images/errors/404.png?1405540783') no-repeat left top;
+}
+
+/* line 35, ../../styles/sass/_errors.scss */
+div.e500 {
+  margin-top: 0;
+  background: url('../../styles/images/errors/500.png?1405540783') no-repeat left top;
+}
+
+/* http://bootsnipp.com/snippets/featured/simple-404-not-found-page */
+/* line 42, ../../styles/sass/_errors.scss */
+.error-actions {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* line 47, ../../styles/sass/_errors.scss */
+.error-actions .btn {
+  margin-right: 10px;
+}
+
+/* line 3, ../../styles/sass/_tables.scss */
+td.message, td.message:hover, div.message-td {
+  height: 140px;
+  text-align: center;
+  background: #FFF;
+  vertical-align: middle !important;
+}
+
+/* line 9, ../../styles/sass/_tables.scss */
+td.message p:first-child {
+  padding-top: 10px;
+}
+
+/* line 12, ../../styles/sass/screen.scss */
+section#content {
+  padding-top: 60px;
+  /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+/* line 16, ../../styles/sass/screen.scss */
+.navbar .nav > li > a.nav-avatar {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+/* line 21, ../../styles/sass/screen.scss */
+.nav-avatar img {
+  width: 36px;
+  height: 36px;
+  margin-left: 15px;
+}
+
+/* line 27, ../../styles/sass/screen.scss */
+header a.navbar-brand {
+  font-family: Oswald, serif;
+}
+
+/* line 31, ../../styles/sass/screen.scss */
+#editor {
+  height: 525px;
+}

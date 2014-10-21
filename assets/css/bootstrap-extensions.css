@@ -1,0 +1,215 @@
+/* http://bootsnipp.com/snippets/featured/social-network-login */
+/* line 2, ../../styles/sass/bootstrap-extensions.scss */
+.social-login-btn {
+  margin: 5px;
+  width: auto;
+  font-size: 250%;
+  padding: 0 0.3em;
+}
+
+/* line 9, ../../styles/sass/bootstrap-extensions.scss */
+.social-google {
+  background-color: #da573b;
+  border-color: #be5238;
+}
+
+/* line 13, ../../styles/sass/bootstrap-extensions.scss */
+.social-google:hover {
+  background-color: #be5238;
+  border-color: #9b4631;
+}
+
+/* line 18, ../../styles/sass/bootstrap-extensions.scss */
+.social-twitter {
+  background-color: #1daee3;
+  border-color: #3997ba;
+}
+
+/* line 22, ../../styles/sass/bootstrap-extensions.scss */
+.social-twitter:hover {
+  background-color: #3997ba;
+  border-color: #347b95;
+}
+
+/* line 27, ../../styles/sass/bootstrap-extensions.scss */
+.social-facebook {
+  background-color: #4c699e;
+  border-color: #47618d;
+}
+
+/* line 31, ../../styles/sass/bootstrap-extensions.scss */
+.social-facebook:hover {
+  background-color: #47618d;
+  border-color: #3c5173;
+}
+
+/* line 36, ../../styles/sass/bootstrap-extensions.scss */
+.social-linkedin {
+  background-color: #4875B4;
+  border-color: #466b99;
+}
+
+/* line 40, ../../styles/sass/bootstrap-extensions.scss */
+.social-linkedin:hover {
+  background-color: #466b99;
+  border-color: #3b5a7c;
+}
+
+/* line 45, ../../styles/sass/bootstrap-extensions.scss */
+.social-github {
+  background-color: #444;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* line 48, ../../styles/sass/bootstrap-extensions.scss */
+.social-github:hover {
+  background-color: #303030;
+}
+
+/* http://bootsnipp.com/snippets/featured/pinterest-like-login-box */
+/* line 53, ../../styles/sass/bootstrap-extensions.scss */
+.form-signin {
+  max-width: 400px;
+  min-width: 366px;
+  display: block;
+  background-color: #f7f7f7;
+  -moz-box-shadow: 0 0 3px 3px #888;
+  -webkit-box-shadow: 0 0 3px 3px #888;
+  box-shadow: 0 0 3px 3px #888;
+  border-radius: 2px;
+  margin: 3em auto 3em;
+}
+
+/* line 64, ../../styles/sass/bootstrap-extensions.scss */
+.form-signin .main {
+  padding: 38px;
+}
+
+/* line 67, ../../styles/sass/bootstrap-extensions.scss */
+.social-box {
+  margin: 0 auto;
+  padding: 38px;
+  border-bottom: 1px #ccc solid;
+  text-align: center;
+}
+
+/* line 73, ../../styles/sass/bootstrap-extensions.scss */
+.social-box b, .social-box input {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 8px;
+}
+
+/* line 78, ../../styles/sass/bootstrap-extensions.scss */
+.heading-desc {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 38px 38px 0px 38px;
+}
+
+/* line 84, ../../styles/sass/bootstrap-extensions.scss */
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+/* line 88, ../../styles/sass/bootstrap-extensions.scss */
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+/* line 91, ../../styles/sass/bootstrap-extensions.scss */
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: 20px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 100, ../../styles/sass/bootstrap-extensions.scss */
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+/* line 103, ../../styles/sass/bootstrap-extensions.scss */
+.form-signin input[type="text"] {
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* line 108, ../../styles/sass/bootstrap-extensions.scss */
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* line 112, ../../styles/sass/bootstrap-extensions.scss */
+.login-footer {
+  background: #f0f0f0;
+  margin: 0 auto;
+  border-top: 1px solid #dadada;
+  padding: 20px;
+}
+
+/* line 118, ../../styles/sass/bootstrap-extensions.scss */
+.login-footer .left-section a {
+  font-weight: bold;
+  color: #8a8a8a;
+  line-height: 19px;
+}
+
+/* line 123, ../../styles/sass/bootstrap-extensions.scss */
+.mg-btm {
+  margin-bottom: 20px;
+}
+
+/* http://bootsnipp.com/snippets/featured/circle-button */
+/* line 128, ../../styles/sass/bootstrap-extensions.scss */
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+/* line 137, ../../styles/sass/bootstrap-extensions.scss */
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+/* line 145, ../../styles/sass/bootstrap-extensions.scss */
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+
+/* http://bootsnipp.com/snippets/featured/user-detail */
+/* line 155, ../../styles/sass/bootstrap-extensions.scss */
+.dp {
+  border: 10px solid #eee;
+  transition: all 0.2s ease-in-out;
+}
+
+/* line 160, ../../styles/sass/bootstrap-extensions.scss */
+.dp:hover {
+  border: 2px solid #eee;
+  transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  /*-webkit-font-smoothing:antialiased;*/
+}

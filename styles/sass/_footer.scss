@@ -1,0 +1,23 @@
+@import "compass";
+
+$padding: $jumbotron-padding;
+$paragrapth-bottom-padding: $line-height-computed / 2;
+$margin: ($line-height-computed * 2);
+
+#content {
+  padding-bottom: $margin;
+}
+
+footer {
+  padding: $padding 0 ($padding - $paragrapth-bottom-padding);
+  border-top: 1px solid #DDD;
+  //@include background-image(linear-gradient(top bottom, darker($navbar-default-bg), white));
+}
+
+footer, body {
+  background: $navbar-default-bg;
+}
+
+footer .partners img {
+  margin: 1em 1em;
+}

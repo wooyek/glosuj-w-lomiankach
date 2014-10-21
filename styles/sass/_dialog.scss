@@ -1,0 +1,69 @@
+$dialog_orange: #f07c00;
+$dialog_orange2: #f07c00;
+
+.navbar {
+  background: $dialog_orange;
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-brand {
+  color: #FFF
+}
+
+body {
+  //  background-color: #EEE;
+}
+
+.jumbotron {
+  //  background-color: #FFF;
+  //  color: #989898;
+}
+
+.feature .fa {
+  color: $dialog_orange;
+}
+
+.feature h1 {
+  color: $dialog_orange;
+  margin-top: 0;
+}
+
+.jumbotron, h1, h2 {
+  font-family: Oswald, sans-serif;
+}
+
+section#content {
+  background-color: #fff;
+  padding-bottom: 60px;
+}
+
+footer, body {
+  background-color: $dialog_orange2;
+}
+
+footer {
+  padding: 30px 0 0;
+}
+
+.feature a {
+  color: $dialog_orange;
+}
+
+footer .gawda {
+  margin-top: -90px;
+  margin-bottom: -60px;
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+
+  footer .plakat {
+    width: 310px;
+  }
+
+}
+
+@media (max-width: $screen-xs-max) {
+  footer .gawda {
+    margin-bottom: 0;
+  }
+}
